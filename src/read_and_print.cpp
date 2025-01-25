@@ -153,8 +153,8 @@ void save_sol(const Fullerene(&F), const int p, const int num_res_faces,
   for (int i = 0; i < F.num_edges; i++) {
     if (evars[i].get(GRB_DoubleAttr_X) < 0.99)
       continue;
-    out_files_ptr[3] << " " << F.edges[i].vertices[0]
-                     << " " << F.edges[i].vertices[1];
+    out_files_ptr[3] << " " << F.edges[i].vertices[0] << " "
+                     << F.edges[i].vertices[1];
   }
   out_files_ptr[3] << endl;
 }

@@ -1,4 +1,4 @@
-# Recursively solving all p-anionic Clar structures of fullerenes via Integer Linear Programming
+# Recursively solving for all p-anionic Clar structures of fullerenes via Integer Linear Programming
 
 ## Background
 
@@ -47,7 +47,7 @@ known solutions.
 For instance, suppose the first time the above ILP is called, $(\mathcal{F},
 \mathcal{M})$ is found to be an optimal $p$-anionic Clar structure on a
 fullerenes $F_n$. By adding the following constraint:
-$$\sum{f\in \mathcal{F}} y_{f} + \sum_{(i,j) \in \mathcal{E}} x_{i,j} \le 
+$$\sum{f\in \mathcal{F}} y_{f} + \sum_{(i,j) \in \mathcal{E}} x_{i,j} \le
 |\mathcal{F}| + |\mathcal{M}| - 1$$
 to the above ILP, we can solve for another solution that is not equal to
 $(\mathcal{F}, \mathcal{M})$. Doing this recursively allows us to determine

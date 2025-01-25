@@ -1,6 +1,5 @@
 #include "include.h"
 
-
 int check_if_sol_valid(const Fullerene(&F), const int p,
                        const vector<GRBVar> fvars, const vector<GRBVar> evars) {
   int num_res_faces = 0, res_pents = 0;
@@ -86,7 +85,7 @@ int assess_solve(const Fullerene(&F), const int p, GRBModel(&model),
     // there are 0 resonant faces since no valid solution
     save_sol(F, p, 0, fvars, evars, out_files_ptr);
 #if DEBUG_CLAR
-      print_sol(F, 0, fvars, evars);
+    print_sol(F, 0, fvars, evars);
 #endif
     return 0;
   } else {
@@ -143,7 +142,7 @@ int solve_all_structs(const Fullerene(&F), const int p, GRBModel(&model),
                       vector<GRBVar>(&fvars), vector<GRBVar>(&evars),
                       ofstream out_files_ptr[NFILE], const int opt_val) {
 
-  const int num_match_e = (F.n-5*p-6*(opt_val-p))/2;
+  const int num_match_e = (F.n - 5 * p - 6 * (opt_val - p)) / 2;
   // vectors to hold previous solutions
   vector<int> res_f(opt_val);
   vector<int> match_e(num_match_e);
@@ -160,8 +159,8 @@ int solve_all_structs(const Fullerene(&F), const int p, GRBModel(&model),
     model.optimize();
     // check validity of new solution and whether it has the right
     // number of resonant faces
-    cur_val = assess_rec_solve(F, p, model, fvars, evars, out_files_ptr, 
-                               opt_val);
+    cur_val =
+        assess_rec_solve(F, p, model, fvars, evars, out_files_ptr, opt_val);
     // if the solution achieves the correct number of resonat faces,
     // remove it an prepare to solve the next
     if (cur_val == opt_val) {
@@ -225,7 +224,7 @@ int p_anionic_clar_lp(const Fullerene(&F), const int p, GRBEnv grb_env,
     // The objective is to maximize number of resonant faces
     model.set(GRB_IntAttr_ModelSense, GRB_MAXIMIZE);
     // get the solver to focus on finding integer solutions
-    //model.set(GRB_IntParam_IntegralityFocus, 1);
+    // model.set(GRB_IntParam_IntegralityFocus, 1);
 
     // fvars[f] = 1 if the face f is resonant and 0 otherwise
     vector<GRBVar> fvars(F.dual_n);
@@ -233,19 +232,20 @@ int p_anionic_clar_lp(const Fullerene(&F), const int p, GRBEnv grb_env,
     vector<GRBVar> evars(F.num_edges);
 
     // add variables to model
-    // note that the obj. coefficients are set during this step 
+    // note that the obj. coefficients are set during this step
     add_vars(F, p, model, fvars, evars);
     // add constraints to model
     add_cons(F, p, model, fvars, evars);
     // run model
     model.optimize();
-    //asses solve
+    // asses solve
     int opt_val = assess_solve(F, p, model, fvars, evars, out_files_ptr);
     // if there exists no p-anionic Clar structure, stop here
-    if (opt_val < 1) return 0;
+    if (opt_val < 1)
+      return 0;
     // otherwise, find all other p-anionic Clar structures
     return solve_all_structs(F, p, model, fvars, evars, out_files_ptr, opt_val);
-  // error handling
+    // error handling
   } catch (GRBException e) {
     const string msg = "\nCode: " + to_string(e.getErrorCode()) +
                        "\nMessage: " + e.getMessage();
