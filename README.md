@@ -168,11 +168,14 @@ $C_{60}$:1812 (for all even values of $p$ between 0 and 12).
 If you use this code in your research, please cite it via:
 
 ```
-@software{Slobodin_An_ILP_for_2025,
-  author =        {Slobodin, A.},
-  month =         Jan,
-  title =         {{Recursively solving all p-anionic Clar structures of fullerenes via Integer Linear Programming}},
-  year =          {2025},
-  url =           {https://github.com/fastbodin/all_anionic_clar_structs_fullerene_ILP},
+@software{Slobodin_Recursively_solving_for_2025,
+   author = {Slobodin, A.},
+   month = Jan,
+   title = {{Recursively solving for all p-anionic Clar structures of fullerenes via Integer Linear Programming}},
+   url = {https://github.com/fastbodin/all_anionic_clar_structs_fullerene_ILP},
+   version = {1.0.0},
+   year = {2025}
 }
 ```
+
+
