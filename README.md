@@ -48,16 +48,17 @@ For instance, suppose the first time the above ILP is called, $(\mathcal{F},
 \mathcal{M})$ is found to be an optimal $p$-anionic Clar structure on a
 fullerenes $F_n$. By adding the following constraint:
 
-$$\sum{f\in \mathcal{F}} y_{f} + \sum_{(i,j) \in \mathcal{E}} x_{i,j} \le
+$$\sum_{f\in \mathcal{F}} y_{f} + \sum_{(i,j) \in \mathcal{E}} x_{i,j} \le
 |\mathcal{F}| + |\mathcal{M}| - 1$$
 
 to the above ILP, we can solve for another solution that is not equal to
 $(\mathcal{F}, \mathcal{M})$. Doing this recursively allows us to determine
-all $p$-anionic Clar structures on $F_n$. To speed up this process,
-after the first solution is found (suppose it has $X$ resonant faces),
-we add the following constraint:
+all $p$-anionic Clar structures on $F_n$.
 
-$$\sum_{f \in F(F_n)} y_{f} == X$$.
+To speed up the search process, after the first solution is found (suppose it
+has $X$ resonant faces), we add the following constraint:
+
+$$\sum_{f \in F(F_n)} y_{f} = X$$.
 
 ## Code
 

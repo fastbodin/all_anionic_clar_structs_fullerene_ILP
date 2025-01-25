@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Slobodin"
+  given-names: "A."
+  orcid: "https://orcid.org/0000-0002-6481-2548"
+title: "Recursively solving for all p-anionic Clar structures of fullerenes via Integer Linear Programming"
+version: 1.0.0
+date-released: 2025-01-25
+url: "https://github.com/fastbodin/all_anionic_clar_structs_fullerene_ILP"
