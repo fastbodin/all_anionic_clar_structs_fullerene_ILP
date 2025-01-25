@@ -7,8 +7,8 @@ int main(int argc, char *argv[]) {
   Fullerene F;
   // out files
   string out_file_names[NFILE] = {
-      "output/pp_anionic_clar_num", "output/pp_r_pent",   "output/pp_r_hex",
-      "output/pp_match_e",          "output/pp_graph_id", "output/pp_full"};
+      "output/pp_anionic_clar_num", "output/pp_r_pent", "output/pp_r_hex",
+      "output/pp_match_e", "output/pp_graph_id"}; //"output/pp_full"
   ofstream out_files_ptr[NFILE];
   open_out_file(p, out_file_names, out_files_ptr);
 

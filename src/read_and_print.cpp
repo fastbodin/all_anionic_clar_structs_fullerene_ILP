@@ -116,13 +116,13 @@ void save_sol(const Fullerene(&F), const int p, const int num_res_faces,
   // record graph number
   out_files_ptr[4] << F.id << endl;
 
-  out_files_ptr[5] << F.n;
-  for (int i = 0; i < F.dual_n; i++) {
-    if (F.dual[i].size == 5) {
-      out_files_ptr[5] << " " << i;
-    }
-  }
-  out_files_ptr[5] << endl;
+  // out_files_ptr[5] << F.n;
+  // for (int i = 0; i < F.dual_n; i++) {
+  //   if (F.dual[i].size == 5) {
+  //     out_files_ptr[5] << " " << i;
+  //   }
+  // }
+  // out_files_ptr[5] << endl;
 
   // if there is no solution
   if (num_res_faces == 0) {
