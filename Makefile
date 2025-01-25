@@ -10,7 +10,7 @@ CXX_FLAGS = -std=c++14 -O3
 SRCS = src/*.cpp
 
 # Executable name
-EXEC = build/comp_all_anionic_clar_structs
+EXEC = build/comp_all_p_anionic_clar_structs
 
 # Build rule
 $(EXEC): $(SRCS)
