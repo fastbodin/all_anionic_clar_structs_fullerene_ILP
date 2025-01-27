@@ -150,7 +150,7 @@ edges: (1, 9), (2, 3), (8, 19), (13, 14), (15, 24), (20, 28), and (25, 29).
 width="400">
 </p>
 
-2. See `exapmle/60_1812` for an example output of all $p$-anionic Clar
+2. See `example/60_1812/` for an example output of all $p$-anionic Clar
    structures of isomer $C_{60}$:1812 for even $0 \le p \le 12$. See
 `full/060_adj` for this isomer's adjacency list. This isomer has 5, 660, 1140,
 60, 375, 30, and 1 $p$-anionic Clar structures for even $0 \le p \le 12$,
