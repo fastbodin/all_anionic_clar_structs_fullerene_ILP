@@ -59,6 +59,9 @@ To speed up the search process, after the first solution is found (suppose it
 has $X$ resonant faces), we add the following constraint: $\sum_{f \in F(F_n)}
 y_{f} = X$.
 
+**Note that this method will yield solutions that may be the same up
+to isomorphism.**
+
 ## Code
 
 ### Requirements:
