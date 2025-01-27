@@ -137,26 +137,21 @@ edge}
 
 ## Example:
 
-1. There are three fullerene isomers on 30 vertices.
-See `full/030_adj` for their adjacency lists. See `example/`
-for an example output of all $2$-anionic Clar structures on these isomers.
-Isomer $C_{30}$:1, $C_{30}$:2, and $C_{30}$:3 have
-30, 22, and 16 $2$-anionic Clar structures, respectively.
-
+1. There are three fullerene isomers on 30 vertices. See `full/030_adj` for
+   their adjacency lists. See `example/` for an example output of all
+$2$-anionic Clar structures on these isomers. Isomer $C_{30}$:1, $C_{30}$:2,
+and $C_{30}$:3 have 30, 22, and 16 $2$-anionic Clar structures, respectively.
 See the image below for a depiction of the first 2-anionic Clar structure
-listed for $C_{30}$:1 (corresponds to the first row of the files).
-Faces and vertices labelled. Matching
-edges are indicated in red, resonant pentagons in purple, and resonant hexagons
-in blue.
+listed for $C_{30}$:1 (corresponds to the first row of the files in
+`example/`). Faces and vertices labelled. Matching edges are indicated in red,
+resonant pentagons in purple, and resonant hexagons in blue. There are two
+resonant pentagons: 1 and 12, one resonant hexagon: 9, and seven matching
+edges: (1, 9), (2, 3), (8, 19), (13, 14), (15, 24), (20, 28), and (25, 29).
 
 <p align="center">
 <img src="example/30_2.png" alt="2-anionic Clar structure on $C_{30}$:1"
 width="400">
 </p>
-
-There are two resonant pentagons: 1 and 12, one resonant hexagon: 9, and seven
-matching edges: (1, 9), (2, 3), (8, 19), (13, 14), (15, 24), (20, 28), and (25,
-29).
 
 2. See `output/` for an example output of all $p$-anionic Clar structures of
    isomer $C_{60}$:1812 for even $0 \le p \le 12$. See `full/060_adj` for this
