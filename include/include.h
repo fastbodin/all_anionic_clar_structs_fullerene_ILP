@@ -14,7 +14,7 @@ using namespace std;
 //-------- HERE BE DRAGONS --------
 
 // number of out files
-constexpr int NFILE = 5;
+constexpr int NFILE = 4;
 
 // information on each vertex
 struct vertex {

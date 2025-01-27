@@ -40,7 +40,7 @@ following ILP:
 3. $x_{i,j}, y_f \in \{0,1\}$, for each $(i,j)\in E(F_n)$ and $f \in H(F_n)\cup
    P(F_n)$.
 
-To determine all $p$-anionic Clar structures for a given fullerenes $F_n$,
+To determine **all** $p$-anionic Clar structures for a given fullerenes $F_n$,
 we recursively call this ILP while adding constraints that exclude
 known solutions.
 
@@ -114,44 +114,54 @@ The flags can be changed from 0 to 1 depending on what you want to debug
 ```
 
 ### Output:
+
 Given a file of your input fullerenes, files will be written to `output/`.
+Each row (across all the files) corresponds with a particular fullerene $F$
+and a particular $p$-anionic Clar structure on $F$ with $C_p(F)$ resonant
+faces.
 
 ```
-p_anionic_clar_num <- File of solved p-anionic Clar number of input fullerenes.
-Format per row: {p-anionic Clar #}.
-p_r_pent <- File of resonant pentagons of input fullerenes. Format per row:
-{# of res. pent} {face ids of res. pent.}
-p_r_hex <- File of resonant hexagon of input fullerenes. Format per row:
-{# of res. hex} {face ids of res. hex.}
-p_match_e <- File of matching edges of input fullerenes. Format per row:
-{2*(# of matching edges)} {endpoint 0 and endpoint 1 of each matching edge}
+p_graph_id <- File of graph ids (starting with 1) corresponding
+with the fullerenes in your input file.
+p_r_pent <- File of resonant pentagons per $p$-anionic Clar structure.
+Format per row: {# of res. pent} {face ids of res. pent.}
+p_r_hex <- File of resonant hexagons per $p$-anionic Clar structure.
+Format per row: {# of res. pent} {face ids of res. pent.}
+p_match_e <- File of matching edges per $p$-anionic Clar structure. Format per
+row: {2*(# of matching edges)} {endpoint 0 and endpoint 1 of each matching
+edge}
 ```
 
-See `output/` for an example output for the 2-anionic Clar number of all
-fullerenes on 30 vertices. See `unit_test/output/` for an example output of the
-0-anionic Clar number of $C_{20}$:1 and the $p$-anionic Clar numbers of
-$C_{60}$:1812 (for all even values of $p$ between 0 and 12).
+
+
 
 ## Example:
-<!-- 1. 2-anionic Clar structure on $C_{30}$:1. Faces and vertices labelled. Matching -->
-<!-- edges are indicated in red, resonant pentagons in purple, and resonant hexagons -->
-<!-- in blue. -->
-<!---->
-<!-- <p align="center"> -->
-<!-- <img src="example/30_2.png" alt="2-anionic Clar structure on $C_{30}$:1" -->
-<!-- width="400"> -->
-<!-- </p> -->
-<!---->
-<!-- There are two resonant pentagons: 1 and 12, one resonant hexagon: 9, and seven -->
-<!-- matching edges: (1, 9), (2, 3), (8, 19), (13, 14), (15, 24), (20, 28), and (25, -->
-<!-- 29). -->
-<!---->
-<!-- 2. A $p$-anionic Clar structure on $C_{60}$:1812, for even $0 \le p \le -->
-<!--    12$. -->
-<!---->
-<!-- <p align="center"> -->
-<!-- <img src="example/C60_1812.png" width="800"> -->
-<!-- </p> -->
+
+1. There are three fullerene isomers on 30 vertices.
+See `full/030_adj` for their adjacency lists. See `example/`
+for an example output of all $2$-anionic Clar structures on these isomers.
+Isomer $C_{30}$:1, $C_{30}$:2, and $C_{30}$:3 have
+30, 22, and 16 $2$-anionic Clar structures, respectively.
+
+See the image below for a depiction of the first 2-anionic Clar structure
+listed for $C_{30}$:1 (corresponds to the first row of the files).
+Faces and vertices labelled. Matching
+edges are indicated in red, resonant pentagons in purple, and resonant hexagons
+in blue.
+
+<p align="center">
+<img src="example/30_2.png" alt="2-anionic Clar structure on $C_{30}$:1"
+width="400">
+</p>
+
+There are two resonant pentagons: 1 and 12, one resonant hexagon: 9, and seven
+matching edges: (1, 9), (2, 3), (8, 19), (13, 14), (15, 24), (20, 28), and (25,
+29).
+
+2. See `output/` for an example output of all $p$-anionic Clar structures of
+   isomer $C_{60}$:1812 for even $0 \le p \le 12$. See `full/060_adj` for this
+isomer's adjacency list. This isomer has 5, 660, 1140, 60, 375, 30, and 1
+$p$-anionic Clar structures for even $0 \le p \le 12$, respectively.
 
 <!-- ## Testing your build -->
 <!-- The directory `unit_test/` contains code to test whether your build is solving -->

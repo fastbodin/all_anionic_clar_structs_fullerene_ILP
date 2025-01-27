@@ -114,7 +114,7 @@ void save_sol(const Fullerene(&F), const int p, const int num_res_faces,
               const vector<GRBVar> fvars, const vector<GRBVar> evars,
               ofstream out_files_ptr[NFILE]) {
   // record graph number
-  out_files_ptr[4] << F.id << endl;
+  out_files_ptr[3] << F.id << endl;
 
   // out_files_ptr[5] << F.n;
   // for (int i = 0; i < F.dual_n; i++) {
@@ -129,34 +129,31 @@ void save_sol(const Fullerene(&F), const int p, const int num_res_faces,
     out_files_ptr[0] << 0 << endl;
     out_files_ptr[1] << 0 << endl;
     out_files_ptr[2] << 0 << endl;
-    out_files_ptr[3] << 0 << endl;
     return;
   }
-  // number of resonant faces
-  out_files_ptr[0] << num_res_faces << endl;
   // print resonant faces
-  out_files_ptr[1] << p;
-  out_files_ptr[2] << num_res_faces - p;
+  out_files_ptr[0] << p;
+  out_files_ptr[1] << num_res_faces - p;
   for (int i = 0; i < F.dual_n; i++) {
     if (fvars[i].get(GRB_DoubleAttr_X) < 0.99)
       continue;
     if (F.dual[i].size == 5) {
-      out_files_ptr[1] << " " << i;
+      out_files_ptr[0] << " " << i;
     } else {
-      out_files_ptr[2] << " " << i;
+      out_files_ptr[1] << " " << i;
     }
   }
+  out_files_ptr[0] << endl;
   out_files_ptr[1] << endl;
-  out_files_ptr[2] << endl;
   // matching edges
-  out_files_ptr[3] << F.n - 6 * (num_res_faces - p) - 5 * p;
+  out_files_ptr[2] << F.n - 6 * (num_res_faces - p) - 5 * p;
   for (int i = 0; i < F.num_edges; i++) {
     if (evars[i].get(GRB_DoubleAttr_X) < 0.99)
       continue;
-    out_files_ptr[3] << " " << F.edges[i].vertices[0] << " "
+    out_files_ptr[2] << " " << F.edges[i].vertices[0] << " "
                      << F.edges[i].vertices[1];
   }
-  out_files_ptr[3] << endl;
+  out_files_ptr[2] << endl;
 }
 
 void get_out_name(const int p, string &fname) {
